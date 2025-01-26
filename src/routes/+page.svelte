@@ -1,2 +1,20 @@
-<h1>Seja bem vindo!</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script>
+	import Cabecalho from './Cabecalho.svelte';
+	import Rodape from './Rodape.svelte';
+</script>
+
+<Cabecalho />
+
+poema
+<br>
+<br>
+<br>
+
+
+<Rodape />
+
+<style>
+	
+
+	
+</style>
