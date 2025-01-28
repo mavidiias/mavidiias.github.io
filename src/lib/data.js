@@ -4,7 +4,7 @@ export const cards = [
       type: '12 de Outubro',
       text: "“A única coisa que nós temos que pedir a Deus na oração é a vontade de ser santos.”",
       img: '/carlo.jpeg',
-      botao: '/santos/Carlo'
+      botao: '/lista'
     },
     {
       title: 'Santa Teresinha Do Menino Jesus',
@@ -24,6 +24,20 @@ export const cards = [
       type: '04 de Maio',
       text: '"A meta da minha vida é a união com o Senhor, o instrumento para alcançá-la é a oração."',
       img: '/Sandra.jpeg',
+      botao: '/horario'
+    },
+    {
+      title: 'Beato Carlo Acutis',
+      type: '12 de Outubro',
+      text: "“A única coisa que nós temos que pedir a Deus na oração é a vontade de ser santos.”",
+      img: '/carlo.jpeg',
+      botao: '/horario'
+    },
+    {
+      title: 'Beato Carlo Acutis',
+      type: '12 de Outubro',
+      text: "“A única coisa que nós temos que pedir a Deus na oração é a vontade de ser santos.”",
+      img: '/carlo.jpeg',
       botao: '/horario'
     },
     {
