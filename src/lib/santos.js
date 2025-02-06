@@ -1,4 +1,4 @@
-export const cards = [
+export const santos = [
     {
       title: 'Beato Carlo Acutis',
       type: '12 de Outubro',
