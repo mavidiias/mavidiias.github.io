@@ -31,8 +31,10 @@
 	}
 </script>
 
-<div class="fundo">
-	<h2>Lista do dia🩵</h2>
+<div class="fundo text-center">
+	<br> 
+	<h1 class="titulo">Lista de Oarações🩵</h1>
+	<br />
 	<p>
 		<input placeholder="Digite a tarefa..." bind:value={tarefaNova} />
 		<button style="background: #ADD8E6" onclick={adicionarTarefa}>➕</button>
@@ -52,15 +54,24 @@
 			</li>
 		{/each}
 	</ul>
-	
 </div>
 
+<svelte:head>
+	<style>
+		body {
+			background-color: #dae5ec;
+		}
+	</style>
+</svelte:head>
+
 <style>
-	.fundo {
-		width: auto;
-		height: auto;
-		background-color: rgb(185, 216, 245);
+	.titulo {
+		text-align: center;
+		font-family: Lucida Handwriting;
+		text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 	}
 
-   
+	.meio {
+		text-align: center;
+	}
 </style>

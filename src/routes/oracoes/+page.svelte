@@ -1,31 +1,29 @@
 <script>
 	import Oracao from '$lib/components/Oracao.svelte';
 	import { oracoes } from '$lib/oracoes.js';
-    let busca = '';
+    import { getContext, untrack } from 'svelte';
+
 	let filtrados = $state(oracoes.slice());
 
-	function pesquisarsanto(event) {
-		//para cada filme da minha lista de filmes
-		console.log('oi');
+	const busca = getContext('busca');
+	$effect(() => {
+		const termo = busca();
+		console.log(termo);
 		filtrados = [];
 		for (const item of oracoes) {
-			//  se o filme conter o texto do campo de busca
-			if (item.title.toLowerCase().includes(busca.toLowerCase())) {
-				//    adicionar o filme na lista de filtrados
-				filtrados.push(item);
+			if (item.title.toLowerCase().includes(termo.toLowerCase())) {
+				untrack(() => filtrados.push(item));
 			}
 		}
-	}
+	});
 	
 </script>
-<input bind:value={busca} class="" placeholder="Filtrar..." />
-<button onclick={pesquisarsanto}>🔎</button>
 
 <div class="cor">
 	<div class="row g-4">
-		{#each filtrados as card}
+		{#each filtrados as oracao}
 			<div class="col">
-				<Oracao {...card} />
+				<Oracao {...oracao} />
 			</div>
 		{/each}
 	</div>

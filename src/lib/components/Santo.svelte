@@ -1,7 +1,7 @@
 <script>
     let { img, title, type, text, botao } = $props();
 </script>
-  <div class="card h-100" style="width: 18rem;">
+  <div class="card h-100 zoom" style="width: 18rem;">
     <img src={img} class="card-img-top" alt="invisibility" width="200px" />
     <div class="card-body">
       <h5 style="color: #4682B4;" class="card-title">{title}</h5>
@@ -10,6 +10,16 @@
       <a href={botao} class="stretched-link"></a>
     </div>
   </div>
-<style>
-  
-</style>
+
+  <style>
+    .zoom {
+      padding: 0px;
+      transition: transform .3s; /* Animation */
+      margin: 0 auto;
+    }
+    
+    .zoom:hover {
+      transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
+    </style>
+    
