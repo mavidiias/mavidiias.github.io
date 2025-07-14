@@ -7,7 +7,7 @@
       <h5 style="color: #4682B4;" class="card-title">{title}</h5>
       <h6 class="card-subtitle mb-2 text-body-secondary">{type}</h6>
       <p class="card-text">{text}</p>
-      <a href={botao} class="stretched-link"></a>
+      <a href={botao} aria-label="descrição" class="stretched-link"></a>
     </div>
   </div>
 

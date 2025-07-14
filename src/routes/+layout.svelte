@@ -25,7 +25,7 @@
 					<a class="nav-link active" aria-current="page" href="/oracoes">Orações</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="/oracoes">Títulos Marianos</a>
+					<a class="nav-link active" aria-current="page" href="/titulosmarianos">Títulos Marianos</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link active" aria-current="page" href="/lista">Lista</a>

@@ -7,7 +7,8 @@
 	let tarefaEditando = $state();
 
 	function adicionarTarefa() {
-		tarefas.push(tarefaNova);
+		if (tarefaNova == '') return;
+		tarefas.push({nome:tarefaNova, status:false});
 		tarefaNova = '';
 	}
 
@@ -17,11 +18,11 @@
 
 	function editarTarefa(i) {
 		tarefaEditandoIndice = i;
-		tarefaEditando = tarefas[i];
+		tarefaEditando = tarefas[i].nome;
 	}
 
 	function salvarTarefa(i) {
-		tarefas[i] = tarefaEditando;
+		tarefas[i].nome = tarefaEditando;
 		tarefaEditandoIndice = null;
 	}
 
@@ -31,25 +32,34 @@
 	}
 </script>
 
-<div class="fundo text-center">
-	<br> 
-	<h1 class="titulo">Lista de Oarações🩵</h1>
-	<br />
-	<p>
-		<input placeholder="Digite a tarefa..." bind:value={tarefaNova} />
-		<button style="background: #ADD8E6" onclick={adicionarTarefa}>➕</button>
+<div class="d-flex flex-column align-items-center">
+	<h1 class="titulo my-3">Lista de Oarações🩵</h1>
+	<p class="mb-3">
+		<input
+			maxlength="64"
+			onkeydown={(event) => event.key == 'Enter' && adicionarTarefa()}
+			placeholder="Digite a tarefa..."
+			bind:value={tarefaNova}
+		/>
+		<button class="btn" onclick={adicionarTarefa}>➕</button>
 	</p>
-	<ul>
+	<ul class="list-group list-group-flush">
 		{#each tarefas as tarefa, i}
-			<li>
+			<li
+				class="list-group-item d-flex justify-content-between align-items-center bg-transparent border-black"
+			>
 				{#if tarefaEditandoIndice == i}
 					<input bind:value={tarefaEditando} />
-					<button style="background: #ADD8E6" onclick={() => salvarTarefa(i)}>✅</button>
-					<button style="background: #ADD8E6" onclick={() => cancelarEdicao(i)}>❌</button>
+					<button class="btn btn-sm" onclick={() => salvarTarefa(i)}>✅</button>
+					<button class="btn btn-sm" onclick={() => cancelarEdicao(i)}>❌</button>
 				{:else}
-					{tarefa}
-					<button style="background: #ADD8E6" onclick={() => editarTarefa(i)}>✏</button>
-					<button style="background: #ADD8E6" onclick={() => excluirTarefa(i)}>🗑</button>
+					<input class="form-check-input me-1" type="checkbox" bind:checked={tarefa.status} id="{i}" />
+					<label class="form-check-label" class:checked={tarefa.status} for="{i}"> {tarefa.nome} </label>
+
+					<div>
+						<button class="btn btn-sm" onclick={() => editarTarefa(i)}>✏</button>
+						<button class="btn btn-sm" onclick={() => excluirTarefa(i)}>🗑</button>
+					</div>
 				{/if}
 			</li>
 		{/each}
@@ -66,12 +76,21 @@
 
 <style>
 	.titulo {
-		text-align: center;
 		font-family: Lucida Handwriting;
 		text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 	}
 
-	.meio {
-		text-align: center;
+	.btn {
+		border-style: solid;
+		border-color: rgb(3, 22, 51);
 	}
+
+	.checked {
+		text-decoration: line-through;
+	}
+
+	.form-check-input:checked {
+    background-color: rgb(3, 22, 51);
+    border-color: rgb(3, 22, 51);
+}
 </style>

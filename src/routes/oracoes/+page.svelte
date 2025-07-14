@@ -19,7 +19,6 @@
 	
 </script>
 
-<div class="cor">
 	<div class="row g-4">
 		{#each filtrados as oracao}
 			<div class="col">
@@ -27,10 +26,12 @@
 			</div>
 		{/each}
 	</div>
-</div>
 
-<style>
-	.cor {
-		background-color: rgb(202, 202, 255);
-	}
-</style>
+<svelte:head>
+	<style>
+		body {
+			background-color: rgb(202, 202, 255);
+		}
+	</style>
+</svelte:head>
+
